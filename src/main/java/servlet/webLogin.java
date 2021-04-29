@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.Servlet;
@@ -31,14 +32,14 @@ public class webLogin extends HttpServlet {
 	Transaction tx = null;
 	Session session;
 	public static Logger logger = MyLogger.crearLogger(webLogin.class);
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public webLogin() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public webLogin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Servlet#init(ServletConfig)
@@ -50,33 +51,54 @@ public class webLogin extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		/*
+		String parametroClave = request.getParameter("clave");
+		String parametroEmail = request.getParameter("email");
+		// response.getWriter().append(parametroEmail).append(parametroClave);
+		
+		
 		
 
-		
-	
-		String parametroClave = 	request.getParameter("clave");
-		String parametroEmail = 	request.getParameter("email");
-		//response.getWriter().append(parametroEmail).append(parametroClave);
-		
-		 Usuarios u = UsuarioDAO.getAllUsuario(session,parametroEmail,parametroClave);
-		response.getWriter().append("Bienvenido ").append(u.getNombre());
-		
-		
-		 
-		 
+		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
+		if (u != null) {
+			response.getWriter().append("Bienvenido ").append(u.getNombre());
+		}else {
+			
+			response.getWriter().append("Usuario o contraseña incorrecta ");
+		}*/
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		logger.info("Entrando por el post al pulsar el boton del formulario");
+		
+		String parametroClave = request.getParameter("clave");
+		String parametroEmail = request.getParameter("email");
+		logger.info("Recogiendo los parametros introducidos por el usurio "+parametroClave +" "+parametroEmail);
+		
+		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
+		logger.info("verificando si el usuario introducido existe o no");
+		if (u != null) {
+			response.getWriter().append("Bienvenido ").append(u.getNombre());
+		}else {
+			
+			response.getWriter().append("Usuario o contraseña incorrecta ");
+		}
 	}
 
 }
