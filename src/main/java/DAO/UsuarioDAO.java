@@ -18,7 +18,7 @@ public class UsuarioDAO {
 		return usuario;
 	}
 	
-	public static List<Usuarios> getAllEmpleados(Session s) {
+	public static List<Usuarios> getAllUsuarios(Session s) {
 		String hQuery = "from Usuarios";
 
 		List<Usuarios> listaUsuarios = s.createQuery(hQuery, Usuarios.class).list();
