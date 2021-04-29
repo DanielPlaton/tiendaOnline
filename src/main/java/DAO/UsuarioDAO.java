@@ -24,4 +24,9 @@ public class UsuarioDAO {
 		List<Usuarios> listaUsuarios = s.createQuery(hQuery, Usuarios.class).list();
 		return listaUsuarios;
 	}
+	
+	public static void insertarUsuario(Session s, Usuarios u) {
+		s.save(u);
+		
+	}
 }

@@ -16,7 +16,7 @@ public class Roles implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	private int id;
-	@Column(name = "nombre", nullable = true)
+	@Column(name = "rol", nullable = true)
 	private String rol;
 
 
