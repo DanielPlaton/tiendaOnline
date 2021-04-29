@@ -95,9 +95,11 @@ public class webLogin extends HttpServlet {
 		logger.info("verificando si el usuario introducido existe o no");
 		if (u != null) {
 			response.getWriter().append("Bienvenido ").append(u.getNombre());
+			logger.info("el usuario introducido existe");
 		}else {
 			
 			response.getWriter().append("Usuario o contraseña incorrecta ");
+			logger.info("el usuario introducido no existe");
 		}
 	}
 
