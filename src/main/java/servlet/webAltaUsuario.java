@@ -93,7 +93,7 @@ public class webAltaUsuario extends HttpServlet {
 		for(int i=0;i < listaUsuarios.size();i++) {
 			if(listaUsuarios.get(i).getEmail().equalsIgnoreCase(u.getEmail())) {
 				existe= true; 
-				response.getWriter().append("El email introducido ya esixte coje otro");
+				response.getWriter().append(" El email introducido ya esixte coje otro ");
 			}
 			
 		}
@@ -106,7 +106,7 @@ public class webAltaUsuario extends HttpServlet {
 			tx.commit();
 		}else {
 			
-			response.getWriter().append("No se ha podido insertar el usuario");
+			response.getWriter().append(" No se ha podido insertar el usuario");
 			logger.info("No se ha podido insertar el usuario");
 		}
 	}
