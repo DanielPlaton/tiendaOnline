@@ -94,8 +94,11 @@ public class webLogin extends HttpServlet {
 		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
 		logger.info("verificando si el usuario introducido existe o no");
 		if (u != null) {
-			response.getWriter().append("Bienvenido ").append(u.getNombre());
+			//response.getWriter().append("Bienvenido ").append(u.getNombre());
 			logger.info("el usuario introducido existe");
+			//request.getRequestDispatcher("menuPrincipal.jsp");
+			request.getRequestDispatcher("menuPrincipal1.jsp").forward(request, response);
+			
 		}else {
 			
 			response.getWriter().append("Usuario o contraseña incorrecta ");
