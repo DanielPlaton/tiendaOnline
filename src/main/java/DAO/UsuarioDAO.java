@@ -12,8 +12,16 @@ public class UsuarioDAO {
 	public static Usuarios getAllUsuario(Session s, String parametroEmail, String parametroClave) {
 		String hQuery = "from Usuarios u where u.email= :email and u.clave= :clave";
 
-		Usuarios usuario = (Usuarios) s.createQuery(hQuery, Usuarios.class)
-				.setParameter("email", parametroEmail).setParameter("clave", parametroClave);
+		Usuarios usuario = (Usuarios) s.createQuery(hQuery,Usuarios.class)
+		.setParameter("email", parametroEmail).setParameter("clave", parametroClave).uniqueResult();
+	
 		return usuario;
+	}
+	
+	public static List<Usuarios> getAllEmpleados(Session s) {
+		String hQuery = "from Usuarios";
+
+		List<Usuarios> listaUsuarios = s.createQuery(hQuery, Usuarios.class).list();
+		return listaUsuarios;
 	}
 }

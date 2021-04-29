@@ -1,1 +1,6 @@
+servlet\webLogin.class
 controlador\MyLogger.class
+DAO\UsuarioDAO.class
+utils\HibernateUtil.class
+modelo\Usuarios.class
+modelo\Roles.class

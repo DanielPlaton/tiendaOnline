@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -15,7 +16,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import DAO.UsuarioDAO;
+
 import controlador.MyLogger;
+
 import modelo.Usuarios;
 import utils.HibernateUtil;
 
@@ -51,15 +54,20 @@ public class webLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		/*
-		String parametroEmail = 	request.getParameter("email");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+
+		
+	
 		String parametroClave = 	request.getParameter("clave");
+		String parametroEmail = 	request.getParameter("email");
 		//response.getWriter().append(parametroEmail).append(parametroClave);
 		
 		 Usuarios u = UsuarioDAO.getAllUsuario(session,parametroEmail,parametroClave);
-		 response.getWriter().append("Bienvenido ").append(u.getNombre());
-		 */
+		response.getWriter().append("Bienvenido ").append(u.getNombre());
+		
+		
+		 
 		 
 	}
 
