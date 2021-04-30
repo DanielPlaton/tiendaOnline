@@ -93,21 +93,22 @@ public class webAltaUsuario extends HttpServlet {
 		for(int i=0;i < listaUsuarios.size();i++) {
 			if(listaUsuarios.get(i).getEmail().equalsIgnoreCase(u.getEmail())) {
 				existe= true; 
-				response.getWriter().append(" El email introducido ya esixte coje otro ");
+				response.getWriter().append(" El email introducido ya existe coje otro ");
 			}
-			
 		}
 
 		
 		if (u != null && existe != true) {
 			UsuarioDAO.insertarUsuario(session, u);
-			response.getWriter().append("Se ha insertado el usuario bien");
+			//response.getWriter().append("Se ha insertado el usuario bien");
 			logger.info("Se ha insertado el usuario perfectamente");
 			tx.commit();
+			request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
 		}else {
 			
-			response.getWriter().append(" No se ha podido insertar el usuario");
+			//response.getWriter().append(" No se ha podido insertar el usuario");
 			logger.info("No se ha podido insertar el usuario");
+			request.getRequestDispatcher("/formularioAltaUsuario.html").forward(request, response);
 		}
 	}
 

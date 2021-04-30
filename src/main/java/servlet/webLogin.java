@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -96,13 +97,15 @@ public class webLogin extends HttpServlet {
 		if (u != null) {
 			//response.getWriter().append("Bienvenido ").append(u.getNombre());
 			logger.info("el usuario introducido existe");
-			//request.getRequestDispatcher("menuPrincipal.jsp");
-			request.getRequestDispatcher("menuPrincipal1.jsp").forward(request, response);
+			String Name = u.getNombre();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("clientName", Name);
+			request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
 			
 		}else {
-			
-			response.getWriter().append("Usuario o contraseña incorrecta ");
 			logger.info("el usuario introducido no existe");
+			request.getRequestDispatcher("/formulario.html").forward(request, response);
+				
 		}
 		
 		

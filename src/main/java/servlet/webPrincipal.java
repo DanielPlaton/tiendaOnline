@@ -7,12 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import controlador.MyLogger;
+
 /**
  * Servlet implementation class webPrincipal
  */
 @WebServlet("/webPrincipal")
 public class webPrincipal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Transaction tx = null;
+	Session session;
+	public static Logger logger = MyLogger.crearLogger(webPrincipal.class);
        
     /**
      * @see HttpServlet#HttpServlet()
