@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="enlacesBotones.css">
 </head>
 <body>
+<jsp:include page="/cabecera.jsp" flush="true"/>
 
 	<%
 	//recogemos los usuarios

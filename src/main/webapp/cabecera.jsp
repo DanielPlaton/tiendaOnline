@@ -10,6 +10,6 @@
 </head>
 <body>
 
-	<h3>Bienvenido, ${sessionScope.clientName}.</h3>
+	<h3>Bienvenido, ${sessionScope.clientName}. <%= new java.util.Date() %></h3>
 </body>
 </html>

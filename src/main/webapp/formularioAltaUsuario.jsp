@@ -5,7 +5,9 @@
 </head>
 <body>
 <div>
+
 <h1 class="h1AltaUsuario">Alta usuarios</h1>
+<jsp:include page="/cabecera.jsp" flush="true"/>
 	<form class="h1AltaUsuario" METHOD="post"
 		ACTION="http://localhost:8080/tiendaOnline/webAltaUsuario">
     <input type="text" name="email" placeholder="Introduce un email" />

@@ -15,7 +15,9 @@
 </head>
 <body>
 
+
 	<h1 align="center">Menu principal</h1>
+	<jsp:include page="/cabecera.jsp" flush="true"/>
 	<div class="divBoton">
 
 		<a class="enlaceboton"
