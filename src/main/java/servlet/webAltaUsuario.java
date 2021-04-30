@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -43,8 +44,7 @@ public class webAltaUsuario extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		logger.info("Iniciando programa");
-		session = HibernateUtil.getSessionFactory().openSession();
-		tx = session.beginTransaction();
+
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class webAltaUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at:  get ").append(request.getContextPath());
 		
 	}
 
@@ -89,11 +89,15 @@ public class webAltaUsuario extends HttpServlet {
 		u.setDni(parametroDni);
 		
 		logger.info("Recogiendo los parametros introducidos por el usurio ");
+		session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
+		
 		List<Usuarios> listaUsuarios= UsuarioDAO.getAllUsuarios(session);
 		for(int i=0;i < listaUsuarios.size();i++) {
 			if(listaUsuarios.get(i).getEmail().equalsIgnoreCase(u.getEmail())) {
 				existe= true; 
-				response.getWriter().append(" El email introducido ya existe coje otro ");
+				//response.getWriter().append(" El email introducido ya existe coje otro ");
+				logger.info(" El email introducido ya existe coje otro ");
 			}
 		}
 
@@ -103,13 +107,17 @@ public class webAltaUsuario extends HttpServlet {
 			//response.getWriter().append("Se ha insertado el usuario bien");
 			logger.info("Se ha insertado el usuario perfectamente");
 			tx.commit();
-			request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
+		
+			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+		
+			
 		}else {
 			
 			//response.getWriter().append(" No se ha podido insertar el usuario");
 			logger.info("No se ha podido insertar el usuario");
-			request.getRequestDispatcher("/formularioAltaUsuario.html").forward(request, response);
+			request.getRequestDispatcher("/formularioAltaUsuario.jsp").forward(request, response);
 		}
+		session.close();
 	}
 
 }

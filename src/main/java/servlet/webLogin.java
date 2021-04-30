@@ -104,7 +104,7 @@ public class webLogin extends HttpServlet {
 			
 		}else {
 			logger.info("el usuario introducido no existe");
-			request.getRequestDispatcher("/formulario.html").forward(request, response);
+			request.getRequestDispatcher("formulario.jsp").forward(request, response);
 				
 		}
 		

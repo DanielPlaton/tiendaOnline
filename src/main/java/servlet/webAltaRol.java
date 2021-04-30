@@ -46,8 +46,7 @@ public class webAltaRol extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		logger.info("Iniciando programa");
-		session = HibernateUtil.getSessionFactory().openSession();
-		tx = session.beginTransaction();
+		
 	}
 
 	/**
@@ -74,6 +73,8 @@ public class webAltaRol extends HttpServlet {
 		String parametroRol = request.getParameter("rol");
 		logger.info("Recogiendo los parametros introducidos por el usurio ");
 
+		session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
 		List<Roles> listaRoles = RolesDAO.getAllRoles(session);
 		boolean existe = false;
 
@@ -87,13 +88,16 @@ public class webAltaRol extends HttpServlet {
 			r.setRol(parametroRol);
 			RolesDAO.insertarRoles(session, r);
 			tx.commit();
-			response.getWriter().append("Se ha insertado el rol bien");
+			//response.getWriter().append("Se ha insertado el rol bien");
 			logger.info("Se ha insertado el rol perfectamente");
+			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
 		} else {
 
-			response.getWriter().append("No se ha podido insertar el rol");
+			//response.getWriter().append("No se ha podido insertar el rol");
 			logger.info("No se ha podido insertar el rol");
+			request.getRequestDispatcher("/formularioAltaRoles.jsp").forward(request, response);
 		}
+		session.close();
 	}
 
 }
