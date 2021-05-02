@@ -1,10 +1,12 @@
 package servlet;
 
+import java.awt.Robot;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
+import javax.management.relation.Role;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,10 +20,11 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import DAO.RolesDAO;
 import DAO.UsuarioDAO;
 
 import controlador.MyLogger;
-
+import modelo.Roles;
 import modelo.Usuarios;
 import utils.HibernateUtil;
 
@@ -59,23 +62,22 @@ public class webLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	
-		/*
-		String parametroClave = request.getParameter("clave");
-		String parametroEmail = request.getParameter("email");
-		// response.getWriter().append(parametroEmail).append(parametroClave);
-		
-		
-		
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
-		if (u != null) {
-			response.getWriter().append("Bienvenido ").append(u.getNombre());
-		}else {
-			
-			response.getWriter().append("Usuario o contraseña incorrecta ");
-		}*/
+		/*
+		 * String parametroClave = request.getParameter("clave"); String parametroEmail
+		 * = request.getParameter("email"); //
+		 * response.getWriter().append(parametroEmail).append(parametroClave);
+		 * 
+		 * 
+		 * 
+		 * 
+		 * Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail,
+		 * parametroClave); if (u != null) {
+		 * response.getWriter().append("Bienvenido ").append(u.getNombre()); }else {
+		 * 
+		 * response.getWriter().append("Usuario o contraseña incorrecta "); }
+		 */
 
 	}
 
@@ -88,30 +90,42 @@ public class webLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		logger.info("Entrando por el post al pulsar el boton del formulario");
-		
+
 		String parametroClave = request.getParameter("clave");
 		String parametroEmail = request.getParameter("email");
-		logger.info("Recogiendo los parametros introducidos por el usurio "+parametroClave +" "+parametroEmail);
-		
+		logger.info("Recogiendo los parametros introducidos por el usurio " + parametroClave + " " + parametroEmail);
+
 		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
 		logger.info("verificando si el usuario introducido existe o no");
 		if (u != null) {
-			//response.getWriter().append("Bienvenido ").append(u.getNombre());
+			// response.getWriter().append("Bienvenido ").append(u.getNombre());
 			logger.info("el usuario introducido existe");
 			String Name = u.getNombre();
 			HttpSession session = request.getSession(true);
 			session.setAttribute("clientName", Name);
 			Date fechaActual = new java.util.Date();
 			session.setAttribute("fecha", fechaActual);
-			request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
-			
-		}else {
+			int opcion = u.getRoles();
+			// List<Roles> listaRoles = RolesDAO.getAllRoles(this.session);
+			switch (opcion) {
+			case 1:
+				request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
+				break;
+			case 2:
+				request.getRequestDispatcher("menuPrincipalEmpleados.jsp").forward(request, response);
+				break;
+			case 3:
+				request.getRequestDispatcher("menuPrincipalClientes.jsp").forward(request, response);
+				break;
+
+			}
+
+		} else {
 			logger.info("el usuario introducido no existe");
 			request.getRequestDispatcher("formulario.jsp").forward(request, response);
-				
+
 		}
-		
-		
+
 	}
 
 }
