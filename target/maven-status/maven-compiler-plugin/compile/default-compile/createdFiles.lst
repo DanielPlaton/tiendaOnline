@@ -1,9 +1,8 @@
-DAO\UsuarioDAO.class
-DAO\RolesDAO.class
-servlet\webPrincipal.class
 servlet\webLogin.class
 controlador\MyLogger.class
+DAO\UsuarioDAO.class
 utils\HibernateUtil.class
+DAO\RolesDAO.class
 modelo\Usuarios.class
 modelo\Roles.class
 servlet\webAltaRol.class

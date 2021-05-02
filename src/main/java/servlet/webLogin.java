@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.Servlet;
@@ -100,6 +101,8 @@ public class webLogin extends HttpServlet {
 			String Name = u.getNombre();
 			HttpSession session = request.getSession(true);
 			session.setAttribute("clientName", Name);
+			Date fechaActual = new java.util.Date();
+			session.setAttribute("fecha", fechaActual);
 			request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
 			
 		}else {
