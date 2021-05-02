@@ -3,12 +3,14 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/tienda_online</property>
-          <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <mapping class="modelo.Usuarios"/>
-        <mapping class="modelo.Roles"/>
-    </session-factory>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/tienda_online</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<mapping class="modelo.Usuarios" />
+		<mapping class="modelo.Roles" />
+		<mapping class="modelo.Categoria" />
+		<mapping class="modelo.Productos" />
+	</session-factory>
 </hibernate-configuration>

@@ -10,5 +10,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <mapping class="modelo.Usuarios"/>
         <mapping class="modelo.Roles"/>
+                <mapping class="modelo.Categoria"/>
+        <mapping class="modelo.Productos"/>
     </session-factory>
 </hibernate-configuration>

@@ -23,6 +23,7 @@
 		<a name="cerrarSesion" class="enlaceboton" onclick="cerrarSession"
 			href="http://localhost:8080/tiendaOnline/formulario.jsp">Cerrar
 			sesion</a>
+			<br></br>
 
 	</div>
 

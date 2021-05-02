@@ -1,9 +1,15 @@
+DAO\ProductosDAO.class
+DAO\CategoriaDAO.class
+DAO\UsuarioDAO.class
+servlet\webAltaCategoria.class
+DAO\RolesDAO.class
+modelo\Categoria.class
+servlet\webAltaProducto.class
 servlet\webLogin.class
 controlador\MyLogger.class
-DAO\UsuarioDAO.class
 utils\HibernateUtil.class
-DAO\RolesDAO.class
 modelo\Usuarios.class
 modelo\Roles.class
 servlet\webAltaRol.class
+modelo\Productos.class
 servlet\webAltaUsuario.class

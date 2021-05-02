@@ -1,4 +1,3 @@
-<%@page import="org.hibernate.Session"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*, modelo.*, DAO.*,utils.*"%>
@@ -17,7 +16,7 @@
 
 
 	<h1 align="center">Menu principal</h1>
-	<jsp:include page="/cabecera.jsp" flush="true"/>
+	<jsp:include page="/cabecera.jsp" flush="true" />
 	<div class="divBoton">
 
 		<a class="enlaceboton"
@@ -25,12 +24,15 @@
 			Usuarios</a> 
 		<a class="enlaceboton"
 			href="http://localhost:8080/tiendaOnline/formularioAltaRoles.jsp">Alta
-			Roles</a>
-			
+			Roles</a> 
+		<a class="enlaceboton"
+			href="http://localhost:8080/tiendaOnline/formularioAltaCategoria.jsp">Alta
+			Categorias</a> 
 		<a class="enlaceboton"
 			href="http://localhost:8080/tiendaOnline/formularioListarUsuario.jsp">Listar
-			Usuarios</a>
-			<a class="enlaceboton"
+			Usuarios</a> 
+			
+		<a class="enlaceboton"
 			href="http://localhost:8080/tiendaOnline/formularioListarRoles.jsp">Listar
 			Roles</a>
 	</div>

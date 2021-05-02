@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="formulariocss.css">
 </head>
 <body>
+	<%
+	System.out.println(session.toString());
+	if (session != null) {
+		session = request.getSession();
+		session.invalidate();
+	System.out.println(session.toString());
+	}
+	%>
 
 	<div>
 
@@ -12,8 +20,8 @@
 			<h1>Login</h1>
 			<input type="text" name="email" placeholder="Introduce un email" />
 			<br></br> <input type="password" name="clave"
-				placeholder="Introducce una clave" /> <br></br> 
-				<INPUT type="SUBMIT" VALUE="Entrar">
+				placeholder="Introducce una clave" /> <br></br> <INPUT
+				type="SUBMIT" VALUE="Entrar">
 		</form>
 	</div>
 

@@ -1,4 +1,4 @@
-<%@page import="org.hibernate.Session"%>
+<%@ page import="org.hibernate.Session"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*, modelo.*, DAO.*,utils.*"%>
@@ -12,12 +12,11 @@
 <link rel="stylesheet" href="enlacesBotones.css">
 </head>
 <body>
-<jsp:include page="/cabecera.jsp" flush="true"/>
+<jsp:include page="/cabecera.jsp" flush="false"/>
 <%
 	//recogemos los usuarios
 	Session s = HibernateUtil.getSessionFactory().openSession();
 	List<Usuarios> listaUsuarios = UsuarioDAO.getAllUsuarios(s);
-	List<Roles> listaRoles = RolesDAO.getAllRoles(s);
 	s.close();
 	
 	pageContext.setAttribute("listaUsuarios", listaUsuarios);
