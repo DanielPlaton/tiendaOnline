@@ -42,6 +42,10 @@
 			<a class="enlaceboton"
 			href="http://localhost:8080/tiendaOnline/formularioListarCategoria.jsp">Listar
 			Categorias</a>
+			
+					<a class="enlaceboton"
+			href="http://localhost:8080/tiendaOnline/formularioListarProducto.jsp">Listar
+			Productos</a>
 	</div>
 	<br></br>
 </body>

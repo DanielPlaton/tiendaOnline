@@ -100,7 +100,7 @@ public class webAltaProducto extends HttpServlet {
 
 		session = HibernateUtil.getSessionFactory().openSession();
 		tx = session.beginTransaction();
-		List<Productos> listaProductos = ProductosDAO.getAllCategoria(session);
+		List<Productos> listaProductos = ProductosDAO.getAllProductos(session);
 		boolean existe = false;
 
 		for (int i = 0; i < listaProductos.size(); i++) {

@@ -5,11 +5,9 @@
 </head>
 <body>
 	<%
-	System.out.println(session.toString());
 	if (session != null) {
 		session = request.getSession();
 		session.invalidate();
-	System.out.println(session.toString());
 	}
 	%>
 

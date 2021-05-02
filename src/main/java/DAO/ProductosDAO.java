@@ -11,11 +11,11 @@ import modelo.Productos;
 public class ProductosDAO {
 
 	
-	public static List<Productos> getAllCategoria(Session s) {
+	public static List<Productos> getAllProductos(Session s) {
 		String hQuery = "from Productos";
 
-		List<Productos> listaCategorias = s.createQuery(hQuery, Productos.class).list();
-		return listaCategorias;
+		List<Productos> listaProductos = s.createQuery(hQuery, Productos.class).list();
+		return listaProductos;
 	}
 	
 	public static void insertarProductos(Session s, Productos p) {
