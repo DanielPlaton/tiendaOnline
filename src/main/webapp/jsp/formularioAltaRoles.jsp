@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Alta usuario</title>
-<link rel="stylesheet" href="css/formularioAltaRoles.css">
+<link rel="stylesheet" href="../css/formularioAltaRoles.css">
 </head>
 <body>
 <div>

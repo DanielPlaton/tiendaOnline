@@ -95,12 +95,12 @@ public class webAltaUsuario extends HttpServlet {
 		
 		if (u != null && existe != true) {
 			ComprobarUsuarios.llamarInsertarUsuario(u);
-			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 		}else {
 			
 			//response.getWriter().append(" No se ha podido insertar el usuario");
 			logger.info("No se ha podido insertar el usuario");
-			request.getRequestDispatcher("/formularioAltaUsuario.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/formularioAltaUsuario.jsp").forward(request, response);
 		}
 		
 	}

@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/formularioAltaUsuario.css">
-<link rel="stylesheet" href="css/enlacesBotones.css">
+<link rel="stylesheet" href="../css/formularioAltaUsuario.css">
+<link rel="stylesheet" href="../css/enlacesBotones.css">
 <title>Cabecera</title>
 
 </head>

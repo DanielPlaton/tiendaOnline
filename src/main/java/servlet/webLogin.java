@@ -94,7 +94,7 @@ public class webLogin extends HttpServlet {
 
 		String parametroClave = request.getParameter("clave");
 		String parametroEmail = request.getParameter("email");
-		logger.info("Recogiendo los parametros introducidos por el usurio " + parametroClave + " " + parametroEmail);
+		logger.info("Recogiendo los parametros introducidos por el usuario " + parametroClave + " " + parametroEmail);
 
 		Usuarios u = ComprobarLogin.comprobarUsuarios(parametroEmail, parametroClave);
 		logger.info("verificando si el usuario introducido existe o no");
@@ -123,7 +123,7 @@ public class webLogin extends HttpServlet {
 
 		} else {
 			logger.info("el usuario introducido no existe");
-			request.getRequestDispatcher("formulario.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/formulario.jsp").forward(request, response);
 
 		}
 

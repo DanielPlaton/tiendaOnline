@@ -8,8 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar usuarios</title>
-<link rel="stylesheet" href="css/formulariocss.css">
-<link rel="stylesheet" href="css/enlacesBotones.css">
+<link rel="stylesheet" href="../css/formulariocss.css">
+<link rel="stylesheet" href="../css/enlacesBotones.css">
 </head>
 <body>
 <jsp:include page="/jsp/cabecera.jsp" flush="false"/>

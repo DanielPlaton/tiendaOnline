@@ -78,12 +78,12 @@ public class webAltaRol extends HttpServlet {
 			ComprobarRol.llamarInsertarRol(r);
 			// response.getWriter().append("Se ha insertado el rol bien");
 			logger.info("Se ha insertado el rol perfectamente");
-			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 		} else {
 
 			// response.getWriter().append("No se ha podido insertar el rol");
 			logger.info("No se ha podido insertar el rol");
-			request.getRequestDispatcher("/formularioAltaRoles.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/formularioAltaRoles.jsp").forward(request, response);
 		}
 
 	}

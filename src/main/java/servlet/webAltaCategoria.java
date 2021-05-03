@@ -91,12 +91,12 @@ public class webAltaCategoria extends HttpServlet {
 			tx.commit();
 			//response.getWriter().append("Se ha insertado la categoria bien");
 			logger.info("Se ha insertado la categoria perfectamente");
-			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 		} else {
 
 			//response.getWriter().append("No se ha podido insertar el rol");
 			logger.info("No se ha podido insertar la categoria");
-			request.getRequestDispatcher("/formularioAltaCategoria.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/formularioAltaCategoria.jsp").forward(request, response);
 		}
 		session.close();
 	}

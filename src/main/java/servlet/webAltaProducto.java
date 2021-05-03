@@ -111,12 +111,12 @@ public class webAltaProducto extends HttpServlet {
 			tx.commit();
 			// response.getWriter().append("Se ha insertado la categoria bien");
 			logger.info("Se ha insertado el producto perfectamente");
-			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 		} else {
 
 			// response.getWriter().append("No se ha podido insertar el rol");
 			logger.info("No se ha podido insertar la categoria");
-			request.getRequestDispatcher("/formularioAltaProducto.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/formularioAltaProducto.jsp").forward(request, response);
 		}
 		session.close();
 	}
