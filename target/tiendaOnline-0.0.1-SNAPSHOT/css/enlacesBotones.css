@@ -1,0 +1,26 @@
+.enlaceboton {
+	width: 100%;;
+	text-align: center;
+	font-family: verdana, arial, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	padding: 4px;
+	background-color: #ffffcc;
+	color: #666666;
+	text-decoration: none;
+}
+
+.divBoton {
+	width: 100%;;
+	text-align: center;
+}
+
+.table {
+	width: 100%;;
+	text-align: center;
+}
+
+.divVolverAtras {
+	width: 100%;;
+	text-align: right;
+}

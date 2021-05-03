@@ -5,11 +5,15 @@ servlet\webAltaCategoria.class
 DAO\RolesDAO.class
 modelo\Categoria.class
 servlet\webAltaProducto.class
+utils\ComprobarRol.class
+utils\ComprobarUsuarios.class
 servlet\webLogin.class
 controlador\MyLogger.class
 utils\HibernateUtil.class
+utils\ComprobarProductos.class
 modelo\Usuarios.class
 modelo\Roles.class
 servlet\webAltaRol.class
+utils\ComprobarLogin.class
 modelo\Productos.class
 servlet\webAltaUsuario.class

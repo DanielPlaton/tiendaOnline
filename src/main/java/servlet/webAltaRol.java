@@ -20,6 +20,7 @@ import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Roles;
 import modelo.Usuarios;
+import utils.ComprobarRol;
 import utils.HibernateUtil;
 
 /**
@@ -28,8 +29,6 @@ import utils.HibernateUtil;
 @WebServlet("/webAltaRol")
 public class webAltaRol extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Transaction tx = null;
-	Session session;
 	public static Logger logger = MyLogger.crearLogger(webAltaRol.class);
 
 	/**
@@ -46,7 +45,7 @@ public class webAltaRol extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		logger.info("Iniciando programa");
-		
+
 	}
 
 	/**
@@ -72,32 +71,21 @@ public class webAltaRol extends HttpServlet {
 		Roles r = new Roles();
 		String parametroRol = request.getParameter("rol");
 		logger.info("Recogiendo los parametros introducidos por el usurio ");
-
-		session = HibernateUtil.getSessionFactory().openSession();
-		tx = session.beginTransaction();
-		List<Roles> listaRoles = RolesDAO.getAllRoles(session);
-		boolean existe = false;
-
-		for (int i = 0; i < listaRoles.size(); i++) {
-			if (listaRoles.get(i).getRol().equalsIgnoreCase(parametroRol)) {
-				existe = true;
-			}
-
-		}
+		r.setRol(parametroRol);
+		boolean existe = ComprobarRol.comprobarRol(r);
+	
 		if (existe != true) {
-			r.setRol(parametroRol);
-			RolesDAO.insertarRoles(session, r);
-			tx.commit();
-			//response.getWriter().append("Se ha insertado el rol bien");
+			ComprobarRol.llamarInsertarRol(r);
+			// response.getWriter().append("Se ha insertado el rol bien");
 			logger.info("Se ha insertado el rol perfectamente");
 			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
 		} else {
 
-			//response.getWriter().append("No se ha podido insertar el rol");
+			// response.getWriter().append("No se ha podido insertar el rol");
 			logger.info("No se ha podido insertar el rol");
 			request.getRequestDispatcher("/formularioAltaRoles.jsp").forward(request, response);
 		}
-		session.close();
+
 	}
 
 }

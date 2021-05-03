@@ -2,10 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +16,10 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import DAO.CategoriaDAO;
 import DAO.ProductosDAO;
 import controlador.MyLogger;
-import modelo.Categoria;
 import modelo.Productos;
+import utils.ComprobarProductos;
 import utils.HibernateUtil;
 
 /**
@@ -82,16 +80,14 @@ public class webAltaProducto extends HttpServlet {
 		p.setStock(Integer.parseInt(parametroStock));
 		String parametroFechaAlta = request.getParameter("fecha_alta");
 
-		 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Timestamp timestamp = Timestamp.valueOf(formatter.format(parametroFechaAlta));
-		logger.info(timestamp);
-		p.setFecha_alta(timestamp);
+		  Timestamp fechaTime = ComprobarProductos.transformarFecha(parametroFechaAlta);
+		
+		logger.info(fechaTime);
+		p.setFecha_alta(fechaTime);
 
 		String parametroFechaBaja = request.getParameter("fecha_baja");
-
-		Timestamp timestamp2 = Timestamp.valueOf(formatter.format(parametroFechaBaja));
-		logger.info(timestamp2);
-		p.setFecha_baja(timestamp2);
+		Timestamp fechaTime2 = ComprobarProductos.transformarFecha(parametroFechaBaja);
+		p.setFecha_baja(fechaTime2);
 
 		String parametroImpuesto = request.getParameter("impuesto");
 		p.setImpuesto(Float.parseFloat(parametroImpuesto));

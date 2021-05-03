@@ -18,6 +18,8 @@ import org.hibernate.Transaction;
 import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Usuarios;
+import utils.ComprobarLogin;
+import utils.ComprobarUsuarios;
 import utils.HibernateUtil;
 
 /**
@@ -26,8 +28,7 @@ import utils.HibernateUtil;
 @WebServlet("/webAltaUsuario")
 public class webAltaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Transaction tx = null;
-	Session session;
+
 	public static Logger logger = MyLogger.crearLogger(webAltaUsuario.class);
        
     /**
@@ -89,35 +90,19 @@ public class webAltaUsuario extends HttpServlet {
 		u.setDni(parametroDni);
 		
 		logger.info("Recogiendo los parametros introducidos por el usurio ");
-		session = HibernateUtil.getSessionFactory().openSession();
-		tx = session.beginTransaction();
-		
-		List<Usuarios> listaUsuarios= UsuarioDAO.getAllUsuarios(session);
-		for(int i=0;i < listaUsuarios.size();i++) {
-			if(listaUsuarios.get(i).getEmail().equalsIgnoreCase(u.getEmail())) {
-				existe= true; 
-				//response.getWriter().append(" El email introducido ya existe coje otro ");
-				logger.info(" El email introducido ya existe coje otro ");
-			}
-		}
 
+		existe = ComprobarUsuarios.existeUsuario(u);
 		
 		if (u != null && existe != true) {
-			UsuarioDAO.insertarUsuario(session, u);
-			//response.getWriter().append("Se ha insertado el usuario bien");
-			logger.info("Se ha insertado el usuario perfectamente");
-			tx.commit();
-		
+			ComprobarUsuarios.llamarInsertarUsuario(u);
 			request.getRequestDispatcher("/menuPrincipal.jsp").forward(request, response);
-		
-			
 		}else {
 			
 			//response.getWriter().append(" No se ha podido insertar el usuario");
 			logger.info("No se ha podido insertar el usuario");
 			request.getRequestDispatcher("/formularioAltaUsuario.jsp").forward(request, response);
 		}
-		session.close();
+		
 	}
 
 }

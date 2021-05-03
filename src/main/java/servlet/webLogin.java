@@ -26,6 +26,7 @@ import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Roles;
 import modelo.Usuarios;
+import utils.ComprobarLogin;
 import utils.HibernateUtil;
 
 /**
@@ -52,7 +53,7 @@ public class webLogin extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		logger.info("Iniciando programa");
-		session = HibernateUtil.getSessionFactory().openSession();
+		// session = HibernateUtil.getSessionFactory().openSession();
 	}
 
 	/**
@@ -95,7 +96,7 @@ public class webLogin extends HttpServlet {
 		String parametroEmail = request.getParameter("email");
 		logger.info("Recogiendo los parametros introducidos por el usurio " + parametroClave + " " + parametroEmail);
 
-		Usuarios u = UsuarioDAO.getAllUsuario(session, parametroEmail, parametroClave);
+		Usuarios u = ComprobarLogin.comprobarUsuarios(parametroEmail, parametroClave);
 		logger.info("verificando si el usuario introducido existe o no");
 		if (u != null) {
 			// response.getWriter().append("Bienvenido ").append(u.getNombre());
@@ -109,13 +110,13 @@ public class webLogin extends HttpServlet {
 			// List<Roles> listaRoles = RolesDAO.getAllRoles(this.session);
 			switch (opcion) {
 			case 1:
-				request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 				break;
 			case 2:
-				request.getRequestDispatcher("menuPrincipalEmpleados.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/menuPrincipalEmpleados.jsp").forward(request, response);
 				break;
 			case 3:
-				request.getRequestDispatcher("menuPrincipalClientes.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsp/menuPrincipalClientes.jsp").forward(request, response);
 				break;
 
 			}
