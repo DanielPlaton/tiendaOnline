@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>Login</title>
-<link rel="stylesheet" href="css/formulariocss.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
 </head>
 <body>
 	<%

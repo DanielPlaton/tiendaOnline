@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/formularioAltaUsuario.css">
-<link rel="stylesheet" href="css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formularioAltaUsuario.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 <title>Cabecera</title>
 
 </head>
@@ -22,7 +22,7 @@
 			
 			<a name="cerrarSesion" class="enlaceboton"
 			onclick="cerrarSession"
-			href="http://localhost:8080/tiendaOnline/formulario.jsp">Cerrar
+			href="http://localhost:8080/tiendaOnline/jsp/formulario.jsp">Cerrar
 			sesion</a> <br></br>
 
 	</div>

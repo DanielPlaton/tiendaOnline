@@ -7,8 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/enlacesBotones.css">
-<link rel="stylesheet" href="css/formulariocss.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
 <meta charset="ISO-8859-1">
 <title>Menu Principal</title>
 </head>
@@ -20,31 +20,31 @@
 	<div class="divBoton">
 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioAltaUsuario.jsp">Alta
+			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaUsuario.jsp">Alta
 			Usuarios</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioAltaRoles.jsp">Alta
+			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaRoles.jsp">Alta
 			Roles</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioAltaCategoria.jsp">Alta
+			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaCategoria.jsp">Alta
 			Categorias</a> 
 			
 				<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioAltaProducto.jsp">Alta
+			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaProducto.jsp">Alta
 			Producto</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarUsuario.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarUsuario.jsp">Listar
 			Usuarios</a> 
 			
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarRoles.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarRoles.jsp">Listar
 			Roles</a>
 			<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarCategoria.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarCategoria.jsp">Listar
 			Categorias</a>
 			
 					<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarProducto.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarProducto.jsp">Listar
 			Productos</a>
 	</div>
 	<br></br>

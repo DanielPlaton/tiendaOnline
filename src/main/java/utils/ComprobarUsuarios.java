@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Usuarios;
-import servlet.webLogin;
+
 
 public class ComprobarUsuarios {
 
@@ -35,6 +35,7 @@ public class ComprobarUsuarios {
 	public static void llamarInsertarUsuario(Usuarios u) {
 		Transaction tx = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
 		UsuarioDAO.insertarUsuario(session, u);
 		//response.getWriter().append("Se ha insertado el usuario bien");
 		logger.info("Se ha insertado el usuario perfectamente");
