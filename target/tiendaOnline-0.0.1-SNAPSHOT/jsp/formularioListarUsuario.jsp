@@ -16,8 +16,9 @@
 <%
 	//recogemos los usuarios
 	
-	
-	pageContext.getAttribute("listaUsuarios");
+	 
+	//pageContext.getAttribute("listaUsuarios");
+		//List<Usuarios> listaUsuarios =(List<Usuarios>) pageContext.getAttribute("listaUsuarios");
 	%>
 
 <table class="table" border='solid'>
