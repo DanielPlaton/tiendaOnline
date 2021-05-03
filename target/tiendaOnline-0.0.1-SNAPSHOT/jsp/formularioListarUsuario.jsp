@@ -15,15 +15,8 @@
 <jsp:include page="/jsp/cabecera.jsp" flush="false"/>
 <%
 	//recogemos los usuarios
-	
-<<<<<<< HEAD
-	 
-	//pageContext.getAttribute("listaUsuarios");
-		//List<Usuarios> listaUsuarios =(List<Usuarios>) pageContext.getAttribute("listaUsuarios");
-=======
-	
-	pageContext.getAttribute("listaUsuarios");
->>>>>>> 2cc2cf591efed87ccf003c8c308088e9e986e057
+		List<Usuarios> listaUsuarios  = (List<Usuarios> ) request.getAttribute("listaUsuarios");
+
 	%>
 
 <table class="table" border='solid'>
@@ -42,8 +35,7 @@
 		</tr>
 
 		<c:forEach varStatus="status" var="usuario"
-			items="${pageScope.listaUsuarios}" begin="0"
-			end="${pageScope.listaUsuarios.size() - 1}">
+			items="${listaUsuarios}">
 			<tr>
 				<td><c:out value="${usuario.roles}" /></td>
 				<td><c:out value="${usuario.email}" /></td>
