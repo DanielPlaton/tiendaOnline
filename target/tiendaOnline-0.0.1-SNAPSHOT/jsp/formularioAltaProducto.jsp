@@ -1,8 +1,8 @@
 <html>
 <head>
 <title>Alta Productos</title>
-<link rel="stylesheet" href="css/formularioAltaProducto.css">
-<link rel="stylesheet" href="css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formularioAltaProducto.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 
 </head>
 <body>

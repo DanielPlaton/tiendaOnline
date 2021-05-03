@@ -1,8 +1,8 @@
 <html>
 <head>
 <title>Alta usuario</title>
-<link rel="stylesheet" href="css/formularioAltaCategoria.css">
-<link rel="stylesheet" href="css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formularioAltaCategoria.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 
 </head>
 <body>

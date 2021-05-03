@@ -7,8 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/enlacesBotones.css">
-<link rel="stylesheet" href="css/formulariocss.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
 <meta charset="ISO-8859-1">
 <title>Menu Principal</title>
 </head>
@@ -20,10 +20,10 @@
 	<div class="divBoton">
 		
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarUsuario.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarUsuario.jsp">Listar
 			Usuarios</a>
 			<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/formularioListarRoles.jsp">Listar
+			href="http://localhost:8080/tiendaOnline/jsp/formularioListarRoles.jsp">Listar
 			Roles</a>
 	</div>
 	<br></br>

@@ -1,7 +1,8 @@
 <html>
 <head>
 <title>Alta usuario</title>
-<link rel="stylesheet" href="css/formularioAltaRoles.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formularioAltaRoles.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 </head>
 <body>
 <div>

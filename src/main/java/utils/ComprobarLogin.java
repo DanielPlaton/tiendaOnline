@@ -4,6 +4,9 @@ import org.hibernate.Session;
 
 import DAO.UsuarioDAO;
 import modelo.Usuarios;
+import utils.HibernateUtil;
+
+
 
 public class ComprobarLogin {
 

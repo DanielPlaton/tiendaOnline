@@ -7,10 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import DAO.RolesDAO;
-import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Roles;
-import modelo.Usuarios;
 
 public class ComprobarRol {
 
@@ -36,6 +34,7 @@ public class ComprobarRol {
 	public static void llamarInsertarRol(Roles r) {
 		Transaction tx = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
 		RolesDAO.insertarRoles(session, r);
 		//response.getWriter().append("Se ha insertado el usuario bien");
 		logger.info("Se ha insertado el usuario perfectamente");

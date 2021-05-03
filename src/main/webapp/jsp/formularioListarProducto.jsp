@@ -8,11 +8,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar Productos</title>
-<link rel="stylesheet" href="../css/formulariocss.css">
-<link rel="stylesheet" href="../css/enlacesBotones.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 </head>
 <body>
-<jsp:include page="/jsp/cabecera.jsp" flush="false"/>
+	<jsp:include page="/jsp/cabecera.jsp" flush="false" />
 
 	<%
 	//recogemos los usuarios
@@ -26,7 +26,7 @@
 
 	pageContext.setAttribute("listaProductos", listaProductos);
 	%>
-<br></br>
+	<br></br>
 	<table class="table" border='solid'>
 		<tr>
 			<th>categorias</th>
@@ -37,15 +37,21 @@
 			<th>fecha_alta</th>
 			<th>fecha_baja</th>
 			<th>impuesto</th>
-			
+
 		</tr>
 
 		<c:forEach varStatus="status" var="producto"
 			items="${pageScope.listaProductos}" begin="0"
 			end="${pageScope.listaProductos.size() - 1}">
 			<tr>
+				<td><c:out value="${producto.categorias}" /></td>
 				<td><c:out value="${producto.nombre}" /></td>
 				<td><c:out value="${producto.descripcion}" /></td>
+				<td><c:out value="${producto.precio}" /></td>
+				<td><c:out value="${producto.stock}" /></td>
+				<td><c:out value="${producto.fecha_alta}" /></td>
+				<td><c:out value="${producto.fecha_baja}" /></td>
+				<td><c:out value="${producto.impuesto}" /></td>
 			</tr>
 		</c:forEach>
 	</table>
