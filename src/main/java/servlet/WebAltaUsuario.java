@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 import controlador.MyLogger;
@@ -66,11 +67,16 @@ public class WebAltaUsuario extends HttpServlet {
 
 		logger.info("Entrando por el post al pulsar el boton del formulario");
 		Usuarios u = new Usuarios();
-		u.setRoles(3);// insertando el rol clientes en el usuario
+		u.setRoles(1);// insertando el rol clientes en el usuario
 		String parametroEmail = request.getParameter("email");
 		u.setEmail(parametroEmail);
 		String parametroClave = request.getParameter("clave");
-		u.setClave(parametroClave);
+		Base64 base64 = new Base64();
+		String claveEncriptada = new String(base64.encode(parametroClave.getBytes()));
+		logger.info("contraseña Encriptada: ");
+		u.setClave(claveEncriptada);
+		
+		
 		String parametroNombre = request.getParameter("nombre");
 		u.setNombre(parametroNombre);
 		String parametroApellido1 = request.getParameter("apellido1");

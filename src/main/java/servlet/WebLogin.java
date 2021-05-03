@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -90,9 +91,11 @@ public class WebLogin extends HttpServlet {
 
 		String parametroClave = request.getParameter("clave");
 		String parametroEmail = request.getParameter("email");
+		Base64 base64 = new Base64();
+		String claveEncriptada = new String(base64.encode(parametroClave.getBytes()));
 		logger.info("Recogiendo los parametros introducidos por el usuario " + parametroClave + " " + parametroEmail);
 
-		Usuarios u = ComprobarLogin.comprobarUsuarios(parametroEmail, parametroClave);
+		Usuarios u = ComprobarLogin.comprobarUsuarios(parametroEmail, claveEncriptada);
 		logger.info("verificando si el usuario introducido existe o no");
 		if (u != null) {
 			// response.getWriter().append("Bienvenido ").append(u.getNombre());
