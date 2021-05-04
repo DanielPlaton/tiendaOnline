@@ -14,31 +14,26 @@
 <body>
 <jsp:include page="/jsp/cabecera.jsp" flush="false"/>
 
-	<%
+<%
 	//recogemos los usuarios
-	Session s = HibernateUtil.getSessionFactory().openSession();
-	List<Roles> listaRoles = RolesDAO.getAllRoles(s);
-	s.close();
+	List<Roles> listaRoles = (List<Roles>) request.getAttribute("listaRoles");
 	%>
 
-	<%
-	//cargamos los roles	
-
-	pageContext.setAttribute("listaRoles", listaRoles);
-	%>
 <br></br>
 	<table class="table" border='solid'>
 		<tr>
 			<th>Rol</th>
 		</tr>
+<%
+		for (int i = 0; i < listaRoles.size(); i++) {
+		%>
+		<tr>
+			<td><%=listaRoles.get(i).getRol()%></td>
 
-		<c:forEach varStatus="status" var="rol"
-			items="${pageScope.listaRoles}" begin="0"
-			end="${pageScope.listaRoles.size() - 1}">
-			<tr>
-				<td><c:out value="${rol.rol}" /></td>
 			</tr>
-		</c:forEach>
+		<%
+		}
+		%>
 	</table>
 </body>
 </html>

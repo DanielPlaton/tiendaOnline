@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Roles;
-import modelo.Usuarios;
+import modelo.*;
 import utils.ComprobarRol;
-import utils.ComprobarUsuarios;
+
 
 /**
  * Servlet implementation class WebListarRoles

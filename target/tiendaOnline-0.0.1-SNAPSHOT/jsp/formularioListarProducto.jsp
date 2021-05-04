@@ -14,17 +14,9 @@
 <body>
 	<jsp:include page="/jsp/cabecera.jsp" flush="false" />
 
-	<%
-	//recogemos los usuarios
-	Session s = HibernateUtil.getSessionFactory().openSession();
-	List<Productos> listaProductos = ProductosDAO.getAllProductos(s);
-	s.close();
-	%>
-
-	<%
-	//cargamos los roles	
-
-	pageContext.setAttribute("listaProductos", listaProductos);
+<%
+	//recogemos los productos
+	List<Productos> listaProductos = (List<Productos>) request.getAttribute("listaProductos");
 	%>
 	<br></br>
 	<table class="table" border='solid'>
@@ -40,20 +32,24 @@
 
 		</tr>
 
-		<c:forEach varStatus="status" var="producto"
-			items="${pageScope.listaProductos}" begin="0"
-			end="${pageScope.listaProductos.size() - 1}">
-			<tr>
-				<td><c:out value="${producto.categorias}" /></td>
-				<td><c:out value="${producto.nombre}" /></td>
-				<td><c:out value="${producto.descripcion}" /></td>
-				<td><c:out value="${producto.precio}" /></td>
-				<td><c:out value="${producto.stock}" /></td>
-				<td><c:out value="${producto.fecha_alta}" /></td>
-				<td><c:out value="${producto.fecha_baja}" /></td>
-				<td><c:out value="${producto.impuesto}" /></td>
+		<%
+		for (int i = 0; i < listaProductos.size(); i++) {
+		%>	<tr>
+			<td><%=String.valueOf(listaProductos.get(i).getCategorias())%></td>
+			<td><%=listaProductos.get(i).getNombre().toString()%></td>
+			<td><%=listaProductos.get(i).getDescripcion().toString()%></td>
+			<td><%=listaProductos.get(i).getPrecio().toString()%></td>
+			<td><%=listaProductos.get(i).getStock().toString()%></td>
+			<td><%=listaProductos.get(i).getApellido2().toString()%></td>
+			<td><%=listaProductos.get(i).getDireccion().toString()%></td>
+			<td><%=listaProductos.get(i).getLocalidad().toString()%></td>
+			<td><%=listaProductos.get(i).getProvincia().toString()%></td>
+			<td><%=listaProductos.get(i).getTelefono().toString()%></td>
+			
 			</tr>
-		</c:forEach>
+		<%
+		}
+		%>
 	</table>
 </body>
 </html>

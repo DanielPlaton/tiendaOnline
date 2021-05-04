@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import controlador.MyLogger;
-import modelo.Roles;
+import controlador.*;
+import modelo.*;
 import utils.ComprobarRol;
 
 /**

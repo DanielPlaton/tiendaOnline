@@ -21,10 +21,10 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import controlador.MyLogger;
-import modelo.Usuarios;
-import utils.ComprobarLogin;
-import utils.HibernateUtil;
+import controlador.*;
+import modelo.*;
+import utils.*;
+
 
 /**
  * Servlet implementation class webLogin

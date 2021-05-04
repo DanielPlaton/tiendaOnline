@@ -1,4 +1,3 @@
-<%@page import="org.hibernate.Session"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*, modelo.*, DAO.*,utils.*"%>
@@ -8,13 +7,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar Productos</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/formulariocss.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/enlacesBotones.css">
 </head>
 <body>
 	<jsp:include page="/jsp/cabecera.jsp" flush="false" />
 
-<%
+	<%
 	//recogemos los productos
 	List<Productos> listaProductos = (List<Productos>) request.getAttribute("listaProductos");
 	%>
@@ -33,21 +34,21 @@
 		</tr>
 
 		<%
-		for (int i = 0; i < listaProductos.size(); i++) {
-		%>	<tr>
+		if (listaProductos != null) {
+			for (int i = 0; i < listaProductos.size(); i++) {
+		%>
+		<tr>
 			<td><%=String.valueOf(listaProductos.get(i).getCategorias())%></td>
-			<td><%=listaProductos.get(i).getNombre().toString()%></td>
-			<td><%=listaProductos.get(i).getDescripcion().toString()%></td>
-			<td><%=listaProductos.get(i).getPrecio().toString()%></td>
-			<td><%=listaProductos.get(i).getStock().toString()%></td>
-			<td><%=listaProductos.get(i).getApellido2().toString()%></td>
-			<td><%=listaProductos.get(i).getDireccion().toString()%></td>
-			<td><%=listaProductos.get(i).getLocalidad().toString()%></td>
-			<td><%=listaProductos.get(i).getProvincia().toString()%></td>
-			<td><%=listaProductos.get(i).getTelefono().toString()%></td>
-			
-			</tr>
+			<td><%=listaProductos.get(i).getNombre()%></td>
+			<td><%=listaProductos.get(i).getDescripcion()%></td>
+			<td><%=listaProductos.get(i).getPrecio()%></td>
+			<td><%=listaProductos.get(i).getStock()%></td>
+			<td><%=listaProductos.get(i).getFecha_alta()%></td>
+			<td><%=listaProductos.get(i).getFecha_baja()%></td>
+			<td><%=listaProductos.get(i).getImpuesto()%></td>
+		</tr>
 		<%
+		    }
 		}
 		%>
 	</table>

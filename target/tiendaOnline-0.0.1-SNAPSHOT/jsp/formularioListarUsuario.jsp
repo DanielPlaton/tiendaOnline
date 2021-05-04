@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*, modelo.*, DAO.*,utils.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -8,18 +8,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar usuarios</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/formulariocss.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/enlacesBotones.css">
 </head>
 <body>
-<jsp:include page="/jsp/cabecera.jsp" flush="false"/>
-<%
+	<jsp:include page="/jsp/cabecera.jsp" flush="false" />
+	<%
 	//recogemos los usuarios
-		List<Usuarios> listaUsuarios  = (List<Usuarios> ) request.getAttribute("listaUsuarios");
-
+	List<Usuarios> listaUsuarios = (List<Usuarios>) request.getAttribute("listaUsuarios");
 	%>
 
-<table class="table" border='solid'>
+	<table class="table" border='solid'>
 		<tr>
 			<th>Rol</th>
 			<th>Email</th>
@@ -34,22 +35,26 @@
 			<th>dni</th>
 		</tr>
 
-		<c:forEach varStatus="status" var="usuario"
-			items="${listaUsuarios}">
-			<tr>
-				<td><c:out value="${usuario.roles}" /></td>
-				<td><c:out value="${usuario.email}" /></td>
-				<td><c:out value="${usuario.clave}" /></td>
-				<td><c:out value="${usuario.nombre}" /></td>
-				<td><c:out value="${usuario.apellido1}" /></td>
-				<td><c:out value="${usuario.apellido2}" /></td>
-				<td><c:out value="${usuario.direccion}" /></td>
-				<td><c:out value="${usuario.localidad}" /></td>
-				<td><c:out value="${usuario.provincia}" /></td>
-				<td><c:out value="${usuario.telefono}" /></td>
-				<td><c:out value="${usuario.dni}" /></td>
+
+		<%
+		for (int i = 0; i < listaUsuarios.size(); i++) {
+		%>
+		<tr>
+			<td><%=String.valueOf(listaUsuarios.get(i).getRoles())%></td>
+			<td><%=listaUsuarios.get(i).getEmail().toString()%></td>
+			<td><%=listaUsuarios.get(i).getClave().toString()%></td>
+			<td><%=listaUsuarios.get(i).getNombre().toString()%></td>
+			<td><%=listaUsuarios.get(i).getApellido1().toString()%></td>
+			<td><%=listaUsuarios.get(i).getApellido2().toString()%></td>
+			<td><%=listaUsuarios.get(i).getDireccion().toString()%></td>
+			<td><%=listaUsuarios.get(i).getLocalidad().toString()%></td>
+			<td><%=listaUsuarios.get(i).getProvincia().toString()%></td>
+			<td><%=listaUsuarios.get(i).getTelefono().toString()%></td>
+			<td><%=listaUsuarios.get(i).getDni().toString()%></td>
 			</tr>
-		</c:forEach>
+		<%
+		}
+		%>
 	</table>
 </body>
 </html>

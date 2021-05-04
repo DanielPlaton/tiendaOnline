@@ -17,8 +17,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import DAO.ProductosDAO;
-import controlador.MyLogger;
-import modelo.Productos;
+import controlador.*;
+import modelo.*;
 import utils.HibernateUtil;
 
 /**

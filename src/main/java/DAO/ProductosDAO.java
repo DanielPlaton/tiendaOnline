@@ -12,7 +12,6 @@ import org.hibernate.Transaction;
 
 import controlador.MyLogger;
 import modelo.Productos;
-
 import utils.HibernateUtil;
 
 

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import DAO.CategoriaDAO;
-import controlador.MyLogger;
-import modelo.Categoria;
+import controlador.*;
+import modelo.*;
 
 /**
  * Servlet implementation class webAltaCategoria

@@ -2,10 +2,9 @@ package utils;
 
 import org.hibernate.Session;
 
-import DAO.UsuarioDAO;
-import modelo.Usuarios;
-import utils.HibernateUtil;
-
+import DAO.*;
+import modelo.*;
+import utils.*;
 
 
 public class ComprobarLogin {

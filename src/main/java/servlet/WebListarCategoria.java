@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.CategoriaDAO;
-import modelo.Categoria;
-import modelo.Usuarios;
-import utils.ComprobarUsuarios;
+import modelo.*;
+
 
 /**
  * Servlet implementation class WebListarCategoria

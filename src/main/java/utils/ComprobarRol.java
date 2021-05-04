@@ -6,11 +6,11 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import DAO.RolesDAO;
-import DAO.UsuarioDAO;
-import controlador.MyLogger;
-import modelo.Roles;
-import modelo.Usuarios;
+import DAO.*;
+import controlador.*;
+import modelo.*;
+
+
 
 public class ComprobarRol {
 

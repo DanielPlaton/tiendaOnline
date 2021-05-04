@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.CategoriaDAO;
-import DAO.ProductosDAO;
-import modelo.Categoria;
-import modelo.Productos;
+import DAO.*;
+import modelo.*;
 
 /**
  * Servlet implementation class WebListarProducto
@@ -57,7 +55,7 @@ public class WebListarProducto extends HttpServlet {
 		listaProductos = ProductosDAO.getAllProductos();
 		
 		request.setAttribute("listaProductos", listaProductos);
-		request.getRequestDispatcher("/jsp/formularioListarProductos.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/formularioListarProducto.jsp").forward(request, response);
 	}
 
 }
