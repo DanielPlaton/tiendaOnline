@@ -7,8 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import DAO.RolesDAO;
+import DAO.UsuarioDAO;
 import controlador.MyLogger;
 import modelo.Roles;
+import modelo.Usuarios;
 
 public class ComprobarRol {
 
@@ -40,5 +42,14 @@ public class ComprobarRol {
 		logger.info("Se ha insertado el usuario perfectamente");
 		tx.commit();
 		session.close();
+	}
+	
+	public static List<Roles> llamarBuscarRoles(List<Roles> lisRoles) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		lisRoles = RolesDAO.getAllRoles(session);
+		session.close();
+		return lisRoles;
+		
+		
 	}
 }

@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,14 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import DAO.CategoriaDAO;
 import controlador.MyLogger;
 import modelo.Categoria;
-import utils.ComprobarCategoria;
-import utils.HibernateUtil;
 
 /**
  * Servlet implementation class webAltaCategoria
@@ -71,16 +64,15 @@ public class WebAltaCategoria extends HttpServlet {
 		logger.info("Recogiendo los parametros introducidos por el usurio ");
 		c.setNombre(parametroNombre);
 		c.setDescripcion(parametroDescripcion);
-		if (!parametroNombre.toString().isEmpty() && !parametroDescripcion.toString().isEmpty()
-				) {
-			boolean existe = ComprobarCategoria.existeCategoria(c);
+		if (!parametroNombre.toString().isEmpty() && !parametroDescripcion.toString().isEmpty()) {
+			boolean existe = CategoriaDAO.existeCategoria(c);
 
 			if (existe != true) {
-				ComprobarCategoria.llamarInsertarCategoria(c);
+				CategoriaDAO.insertarCategoria(c);
 				request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
-			}else {
+			} else {
 				request.getRequestDispatcher("/jsp/formularioAltaCategoria.jsp").forward(request, response);
-				
+
 			}
 		} else {
 

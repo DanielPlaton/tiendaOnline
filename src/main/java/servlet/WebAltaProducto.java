@@ -19,7 +19,6 @@ import org.hibernate.Transaction;
 import DAO.ProductosDAO;
 import controlador.MyLogger;
 import modelo.Productos;
-import utils.ComprobarProductos;
 import utils.HibernateUtil;
 
 /**
@@ -83,13 +82,13 @@ public class WebAltaProducto extends HttpServlet {
 		}
 		String parametroFechaAlta = request.getParameter("fecha_alta");
 
-		Timestamp fechaTime = ComprobarProductos.transformarFecha(parametroFechaAlta);
+		Timestamp fechaTime = ProductosDAO.transformarFecha(parametroFechaAlta);
 
 		logger.info(fechaTime);
 		p.setFecha_alta(fechaTime);
 
 		String parametroFechaBaja = request.getParameter("fecha_baja");
-		Timestamp fechaTime2 = ComprobarProductos.transformarFecha(parametroFechaBaja);
+		Timestamp fechaTime2 = ProductosDAO.transformarFecha(parametroFechaBaja);
 		p.setFecha_baja(fechaTime2);
 
 		String parametroImpuesto = request.getParameter("impuesto");
@@ -102,9 +101,9 @@ public class WebAltaProducto extends HttpServlet {
 		if (!parametroNombre.toString().isEmpty() && !parametroDescripcion.toString().isEmpty()
 				&& !parametroPrecio.toString().isEmpty() && !parametroStock.toString().isEmpty()
 				&& !parametroImpuesto.toString().isEmpty()) {
-			boolean existe = ComprobarProductos.existeProducto(p);
+			boolean existe = ProductosDAO.existeProducto(p);
 			if (existe != true) {
-				ComprobarProductos.llamarInsertarProducto(p);
+				ProductosDAO.insertarProductos(p);
 				request.getRequestDispatcher("/jsp/menuPrincipal.jsp").forward(request, response);
 			}else {
 

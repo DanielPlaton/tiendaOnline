@@ -20,31 +20,31 @@
 	<div class="divBoton">
 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaUsuario.jsp">Alta
+			href=<%=request.getContextPath() %>/jsp/formularioAltaUsuario.jsp>Alta
 			Usuarios</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaRoles.jsp">Alta
+			href=<%=request.getContextPath() %>/jsp/formularioAltaRoles.jsp>Alta
 			Roles</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaCategoria.jsp">Alta
+			href=<%=request.getContextPath() %>/jsp/formularioAltaCategoria.jsp>Alta
 			Categorias</a> 
 			
 				<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioAltaProducto.jsp">Alta
+			href=<%=request.getContextPath() %>/jsp/formularioAltaProducto.jsp>Alta
 			Producto</a> 
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioListarUsuario.jsp">Listar
+			href=<%=request.getContextPath() %>/WebListarUsuarios>Listar
 			Usuarios</a> 
 			
 		<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioListarRoles.jsp">Listar
+			href=<%=request.getContextPath() %>/WebListarRoles>Listar
 			Roles</a>
 			<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioListarCategoria.jsp">Listar
+			href=<%=request.getContextPath() %>/WebListarCategoria>Listar
 			Categorias</a>
 			
 					<a class="enlaceboton"
-			href="http://localhost:8080/tiendaOnline/jsp/formularioListarProducto.jsp">Listar
+			href=<%=request.getContextPath() %>/WebListarProducto>Listar
 			Productos</a>
 	</div>
 	<br></br>

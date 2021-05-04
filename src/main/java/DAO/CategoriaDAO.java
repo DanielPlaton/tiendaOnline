@@ -3,23 +3,47 @@ package DAO;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import controlador.MyLogger;
 import modelo.Categoria;
-
-
+import utils.HibernateUtil;
 
 public class CategoriaDAO {
+	Session session = HibernateUtil.getSessionFactory().openSession();
 
-	
-	public static List<Categoria> getAllCategoria(Session s) {
+	public static List<Categoria> getAllCategoria() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		String hQuery = "from Categoria";
 
-		List<Categoria> listaCategorias = s.createQuery(hQuery, Categoria.class).list();
+		List<Categoria> listaCategorias = session.createQuery(hQuery, Categoria.class).list();
+		session.close();
 		return listaCategorias;
 	}
+
+	public static void insertarCategoria(Categoria c) {
+		Transaction tx = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		tx = session.beginTransaction();
+		session.save(c);
+		tx.commit();
+		session.close();
+
+	}
 	
-	public static void insertarCategoria(Session s, Categoria c) {
-		s.save(c);
+public static boolean existeCategoria(Categoria c) {
+		List<Categoria> listaCategorias = CategoriaDAO.getAllCategoria();
+		boolean existe = false;
+
+		for (int i = 0; i < listaCategorias.size(); i++) {
+			if (listaCategorias.get(i).getNombre().equalsIgnoreCase(c.getNombre())) {
+				existe = true;
+			}
+
+		}
+		return existe;
+		
 		
 	}
+	
 }

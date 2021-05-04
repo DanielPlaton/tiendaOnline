@@ -8,20 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import modelo.Roles;
 import modelo.Usuarios;
+import utils.ComprobarRol;
 import utils.ComprobarUsuarios;
 
 /**
- * Servlet implementation class WebListarUsuarios
+ * Servlet implementation class WebListarRoles
  */
-@WebServlet("/WebListarUsuarios")
-public class WebListarUsuarios extends HttpServlet {
+@WebServlet("/WebListarRoles")
+public class WebListarRoles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebListarUsuarios() {
+    public WebListarRoles() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +34,7 @@ public class WebListarUsuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: get ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -42,13 +45,11 @@ public class WebListarUsuarios extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		List<Roles> listaRoles = null;
+		listaRoles = ComprobarRol.llamarBuscarRoles(listaRoles);
 		
-		List<Usuarios> listaUsuarios = null;
-		listaUsuarios = ComprobarUsuarios.llamarBuscarUsuarios(listaUsuarios);
-		
-		request.setAttribute("listaUsuarios", listaUsuarios);
-		request.getRequestDispatcher("/jsp/formularioListarUsuario.jsp").forward(request, response);
-		
+		request.setAttribute("listaRoles", listaRoles);
+		request.getRequestDispatcher("/jsp/formularioListarRoles.jsp").forward(request, response);
 	}
 
 }

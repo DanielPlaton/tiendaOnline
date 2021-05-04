@@ -14,7 +14,7 @@
 	<div>
 
 		<form class="login-form" METHOD="POST"
-			ACTION="http://localhost:8080/tiendaOnline/webLogin">
+			ACTION="<%=request.getContextPath() %>/webLogin">
 			<h1>Login</h1>
 			<input type="text" name="email" placeholder="Introduce un email" />
 			<br></br> <input type="password" name="clave"

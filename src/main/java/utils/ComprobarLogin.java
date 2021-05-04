@@ -11,10 +11,10 @@ import utils.HibernateUtil;
 public class ComprobarLogin {
 
 	
-	public static Usuarios comprobarUsuarios(String email, String contraseña) {
+	public static Usuarios comprobarUsuarios(String email, String contrasena) {
 		Usuarios u= null;
 		Session s = HibernateUtil.getSessionFactory().openSession();
-		 u = UsuarioDAO.getAllUsuario(s, email, contraseña);
+		 u = UsuarioDAO.getAllUsuario(s, email, contrasena);
 		s.close();
 		return u;
 	}

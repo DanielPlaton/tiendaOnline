@@ -22,7 +22,7 @@
 			
 			<a name="cerrarSesion" class="enlaceboton"
 			onclick="cerrarSession"
-			href="http://localhost:8080/tiendaOnline/jsp/formulario.jsp">Cerrar
+			href=<%=request.getContextPath() %>/jsp/formulario.jsp>Cerrar
 			sesion</a> <br></br>
 
 	</div>

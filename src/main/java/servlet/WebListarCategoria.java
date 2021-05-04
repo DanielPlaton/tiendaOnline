@@ -3,28 +3,39 @@ package servlet;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.CategoriaDAO;
+import modelo.Categoria;
 import modelo.Usuarios;
 import utils.ComprobarUsuarios;
 
 /**
- * Servlet implementation class WebListarUsuarios
+ * Servlet implementation class WebListarCategoria
  */
-@WebServlet("/WebListarUsuarios")
-public class WebListarUsuarios extends HttpServlet {
+@WebServlet("/WebListarCategoria")
+public class WebListarCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebListarUsuarios() {
+    public WebListarCategoria() {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,13 +53,11 @@ public class WebListarUsuarios extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		List<Categoria> listaCategorias = null;
+		listaCategorias = CategoriaDAO.getAllCategoria();
 		
-		List<Usuarios> listaUsuarios = null;
-		listaUsuarios = ComprobarUsuarios.llamarBuscarUsuarios(listaUsuarios);
-		
-		request.setAttribute("listaUsuarios", listaUsuarios);
-		request.getRequestDispatcher("/jsp/formularioListarUsuario.jsp").forward(request, response);
-		
+		request.setAttribute("listaCategorias", listaCategorias);
+		request.getRequestDispatcher("/jsp/formularioListarCategoria.jsp").forward(request, response);
 	}
 
 }

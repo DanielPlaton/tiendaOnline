@@ -62,8 +62,7 @@ public class WebAltaUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		boolean existe = false;
+			boolean existe = false;
 
 		logger.info("Entrando por el post al pulsar el boton del formulario");
 		Usuarios u = new Usuarios();

@@ -8,39 +8,39 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Listar Categorias</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/formulariocss.css">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/css/enlacesBotones.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/css/formulariocss.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath() %>/css/enlacesBotones.css">
 </head>
 <body>
-<jsp:include page="/jsp/cabecera.jsp" flush="false"/>
+	<jsp:include page="/jsp/cabecera.jsp" flush="false" />
+
+
 
 	<%
 	//recogemos los usuarios
-	Session s = HibernateUtil.getSessionFactory().openSession();
-	List<Categoria> listaCategorias = CategoriaDAO.getAllCategoria(s);
-	s.close();
+	List<Categoria> listaCategorias = (List<Categoria>) request.getAttribute("listaCategorias");
 	%>
-
-	<%
-	//cargamos los roles	
-
-	pageContext.setAttribute("listaCategorias", listaCategorias);
-	%>
-<br></br>
+	<br></br>
 	<table class="table" border='solid'>
 		<tr>
 			<th>Nombre</th>
 			<th>Descripcion</th>
 		</tr>
 
-		<c:forEach varStatus="status" var="categoria"
-			items="${pageScope.listaCategorias}" begin="0"
-			end="${pageScope.listaCategorias.size() - 1}">
-			<tr>
-				<td><c:out value="${categoria.nombre}" /></td>
-				<td><c:out value="${categoria.descripcion}" /></td>
-			</tr>
-		</c:forEach>
-	</table>
+		<%
+		for (int i = 0; i < listaCategorias.size(); i++) {
+		%>
+		<tr>
+
+			<td><%=listaCategorias.get(i).getNombre().toString()%></td>
+			<td><%=listaCategorias.get(i).getDescripcion().toString()%></td>
+
+		</tr>
+		<%
+		}
+		%>
+	
 </body>
 </html>

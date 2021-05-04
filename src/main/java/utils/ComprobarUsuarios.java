@@ -42,4 +42,13 @@ public class ComprobarUsuarios {
 		tx.commit();
 		session.close();
 	}
+	
+	public static List<Usuarios> llamarBuscarUsuarios(List<Usuarios> lisUsuarios) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		lisUsuarios = UsuarioDAO.getAllUsuarios(session);
+		session.close();
+		return lisUsuarios;
+		
+		
+	}
 }
